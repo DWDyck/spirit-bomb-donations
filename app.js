@@ -34,7 +34,8 @@
   $("power-name").textContent = level.name;
   $("collected").textContent = fmt(energy);
   $("goal").textContent = fmt(C.goal);
-  $("unit").textContent = C.unit;
+  document.querySelectorAll(".unit").forEach(function (u) { u.textContent = C.unit; });
+  $("over").hidden = energy <= 9000;
   $("percent").textContent = String(Math.floor(percent));
   $("fill").style.transform = "scaleX(" + percent / 100 + ")";
   $("bar").setAttribute("aria-valuenow", String(Math.floor(percent)));

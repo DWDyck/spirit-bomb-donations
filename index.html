@@ -6,21 +6,38 @@
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
   <title>Lend Me Your Tokens</title>
-  <meta name="description" content="A heroic campaign to fund questionable software projects.">
+  <meta name="description" content="A heroic campaign to fund questionable software projects. Raise your hands.">
+  <meta property="og:title" content="Lend Me Your Tokens">
+  <meta property="og:description" content="I am attempting to assemble enough energy to continue vibe coding at irresponsible levels.">
+  <meta name="theme-color" content="#0e0712">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="hero" id="hero" data-stage="1">
-    <div class="space" aria-hidden="true">
+    <div class="sky" aria-hidden="true">
       <div class="planet"></div>
       <div class="clouds"><i></i><i></i><i></i></div>
+      <svg class="ground" viewBox="0 0 400 70" preserveAspectRatio="none">
+        <path d="M0 40 L30 28 L55 38 L90 18 L120 36 L160 30 L200 42 L240 24 L275 38 L315 20 L350 36 L400 26 L400 70 L0 70Z"/>
+      </svg>
     </div>
 
-    <div class="sphere-wrap" aria-hidden="true">
-      <div class="sphere">
-        <div class="arcs"></div>
-        <div class="core"></div>
+    <div class="scene" aria-hidden="true">
+      <div class="rays"></div>
+      <div class="streams"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="sphere-wrap">
+        <div class="sphere">
+          <div class="arcs"></div>
+          <div class="core"></div>
+        </div>
       </div>
+      <svg class="fighter" viewBox="0 0 100 120">
+        <polygon points="41,28 38,12 46,20 50,6 54,20 62,12 59,28"/>
+        <circle cx="50" cy="31" r="8"/>
+        <path d="M43 42 L57 42 L60 80 L40 80Z"/>
+        <path class="limb" d="M44 46 L22 6 M56 46 L78 6 M45 78 L30 116 M55 78 L70 116"/>
+      </svg>
     </div>
 
     <div class="alert" id="alert" role="status">Cosmic emergency: someone is about to ship again</div>
@@ -34,13 +51,17 @@
   <main>
     <section id="meter" aria-labelledby="meter-h">
       <h2 id="meter-h">Energy Meter</h2>
-      <p class="power">Power level: <strong id="power-name">...</strong></p>
-      <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="bar">
-        <div class="fill" id="fill"></div>
+      <div class="scouter">
+        <p class="hud-label">Scouter reading</p>
+        <p class="hud-big"><span id="collected">0</span> <small class="unit"></small></p>
+        <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="bar">
+          <div class="fill" id="fill"></div>
+        </div>
+        <p class="stats">Goal: <span id="goal">0</span> <span class="unit"></span> (<span id="percent">0</span>%)</p>
+        <p class="power">Classification: <strong id="power-name">...</strong></p>
+        <p class="next" id="next"></p>
+        <p class="over" id="over" hidden>It's over 9,000! The scouter is beeping nervously.</p>
       </div>
-      <p class="stats"><span id="collected">0</span> / <span id="goal">0</span> <span id="unit"></span>
-        (<span id="percent">0</span>%)</p>
-      <p class="next" id="next"></p>
     </section>
 
     <section id="donate" aria-labelledby="donate-h">
@@ -61,22 +82,26 @@
 
     <section id="heroes" aria-labelledby="heroes-h">
       <h2 id="heroes-h">Hall of Heroes</h2>
+      <p class="note">Those who raised their hands and lent their energy.</p>
       <ul class="cards" id="heroes-list"></ul>
     </section>
 
     <section id="mission" aria-labelledby="mission-h">
       <h2 id="mission-h">Mission Control</h2>
+      <p class="note">Objectives for the energy, in no particular order of importance.</p>
       <ul class="missions" id="mission-list"></ul>
     </section>
 
     <section id="milestones" aria-labelledby="ms-h">
       <h2 id="ms-h">Progress Milestones</h2>
+      <p class="note">Each level unlocks a more alarming sphere.</p>
       <ol class="milestones" id="milestone-list"></ol>
     </section>
   </main>
 
   <footer>
     <p>No planets were harmed. Several backlogs were.</p>
+    <p>Unofficial fan parody. Not affiliated with or endorsed by any anime franchise.</p>
   </footer>
 
   <script src="config.js"></script>
