@@ -53,11 +53,11 @@ h2 {
 .scene { position: relative; z-index: 1; max-width: 640px; height: var(--scene-h); margin: 0 auto; }
 .scene > * { position: absolute; }
 
-.fighter { left: 50%; bottom: 36px; width: 90px; height: 108px; margin-left: -45px; fill: var(--ground); }
-.fighter .limb { fill: none; stroke: var(--ground); stroke-width: 9; stroke-linecap: round; }
+.fighter { left: 50%; bottom: 36px; width: 100px; height: 120px; margin-left: -50px; fill: var(--ground); }
+.fighter .limb { fill: none; stroke: var(--ground); stroke-linecap: round; }
 
 .sphere-wrap {
-  left: 50%; bottom: 136px; width: var(--size); height: var(--size); margin-left: calc(var(--size) / -2);
+  left: 50%; bottom: 146px; width: var(--size); height: var(--size); margin-left: calc(var(--size) / -2);
 }
 .sphere { position: relative; width: 100%; height: 100%; }
 .core {
@@ -99,7 +99,7 @@ h2 {
 .streams i:nth-child(8) { --x: 66%; --dx: -40px; --r: 8deg;   --d: -1s; }
 
 .rays {
-  display: none; left: 50%; bottom: calc(136px + var(--size) / 2 - 360px); width: 720px; height: 720px; margin-left: -360px;
+  display: none; left: 50%; bottom: calc(146px + var(--size) / 2 - 360px); width: 720px; height: 720px; margin-left: -360px;
   border-radius: 50%; opacity: .3;
   background: repeating-conic-gradient(from 0deg, var(--yellow) 0 4deg, transparent 4deg 22deg);
   -webkit-mask: radial-gradient(circle, #000 20%, transparent 70%);
