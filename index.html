@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+  <title>Lend Me Your Tokens</title>
+  <meta name="description" content="A heroic campaign to fund questionable software projects.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero" id="hero" data-stage="1">
+    <div class="space" aria-hidden="true">
+      <div class="planet"></div>
+      <div class="clouds"><i></i><i></i><i></i></div>
+    </div>
+
+    <div class="sphere-wrap" aria-hidden="true">
+      <div class="sphere">
+        <div class="arcs"></div>
+        <div class="core"></div>
+      </div>
+    </div>
+
+    <div class="alert" id="alert" role="status">Cosmic emergency: someone is about to ship again</div>
+    <p class="ready" id="ready">Spirit Bomb Ready</p>
+
+    <h1>Lend Me Your Tokens</h1>
+    <p class="sub">I am attempting to assemble enough energy to continue vibe coding at irresponsible levels.</p>
+    <a class="btn" href="#donate">Donate Energy</a>
+  </header>
+
+  <main>
+    <section id="meter" aria-labelledby="meter-h">
+      <h2 id="meter-h">Energy Meter</h2>
+      <p class="power">Power level: <strong id="power-name">...</strong></p>
+      <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="bar">
+        <div class="fill" id="fill"></div>
+      </div>
+      <p class="stats"><span id="collected">0</span> / <span id="goal">0</span> <span id="unit"></span>
+        (<span id="percent">0</span>%)</p>
+      <p class="next" id="next"></p>
+    </section>
+
+    <section id="donate" aria-labelledby="donate-h">
+      <h2 id="donate-h">Transfer Your Energy</h2>
+      <p class="note">Public address only. I do not want your keys, your seed phrase, or your DMs.</p>
+      <p class="warn" id="wallet-warn" hidden>Wallet not configured yet. Edit config.js before going live.</p>
+      <div class="donate-grid">
+        <img class="qr" src="qr.svg" alt="QR code for the donation wallet address" width="180" height="180">
+        <div>
+          <code class="address" id="address"></code>
+          <button class="btn small" type="button" id="copy">Copy address</button>
+          <span class="copied" id="copied" role="status"></span>
+          <p class="networks">Supported networks: <span id="networks"></span></p>
+          <p class="note">Send on the wrong network and the energy goes to the void. Check twice.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="heroes" aria-labelledby="heroes-h">
+      <h2 id="heroes-h">Hall of Heroes</h2>
+      <ul class="cards" id="heroes-list"></ul>
+    </section>
+
+    <section id="mission" aria-labelledby="mission-h">
+      <h2 id="mission-h">Mission Control</h2>
+      <ul class="missions" id="mission-list"></ul>
+    </section>
+
+    <section id="milestones" aria-labelledby="ms-h">
+      <h2 id="ms-h">Progress Milestones</h2>
+      <ol class="milestones" id="milestone-list"></ol>
+    </section>
+  </main>
+
+  <footer>
+    <p>No planets were harmed. Several backlogs were.</p>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
