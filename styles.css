@@ -25,8 +25,8 @@ code { word-break: break-all; }
 
 h1, h2 { font-style: italic; text-transform: uppercase; line-height: 1.1; }
 h2 {
-  font-size: 1.5rem; margin: 0 0 .5rem; letter-spacing: .04em;
-  color: var(--yellow); text-shadow: 2px 2px 0 var(--red);
+  font-size: 1.6rem; margin: 0 0 .5rem; letter-spacing: .04em; font-weight: 900;
+  color: var(--yellow); -webkit-text-stroke: 4px #2a0600; paint-order: stroke fill; text-shadow: 3px 3px 0 #b8330a;
 }
 
 /* ---------- Hero: sky, ground, scene ---------- */
@@ -46,9 +46,17 @@ h2 {
     radial-gradient(1px 1px at 63% 18%, #fff, transparent),
     radial-gradient(1.5px 1.5px at 78% 9%, #fff, transparent),
     radial-gradient(1px 1px at 91% 26%, #fff, transparent),
-    linear-gradient(#050818 0%, #1c1348 40%, #6a2a5c 70%, #e0622e 92%, #ffb04a 100%);
+    linear-gradient(#0a0f3a 0 20%, #1a1b6b 20% 38%, #3c2a8a 38% 52%, #7a2f8e 52% 64%, #c2417a 64% 75%, #f0703a 75% 86%, #ffa83a 86% 100%);
+}
+/* Halftone dots and scanlines: the VHS-rip look. Static, so free to render. */
+.sky::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, .12) 0 1px, transparent 1px 3px),
+    radial-gradient(rgba(0, 0, 0, .18) 1px, transparent 1.5px) 0 0 / 6px 6px;
 }
 .ground { position: absolute; left: 0; bottom: 0; width: 100%; height: 70px; fill: var(--ground); }
+.ground .back { fill: #2a1434; }
 
 .scene { position: relative; z-index: 1; max-width: 640px; height: var(--scene-h); margin: 0 auto; }
 .scene > * { position: absolute; }
@@ -62,7 +70,8 @@ h2 {
 .sphere { position: relative; width: 100%; height: 100%; }
 .core {
   position: absolute; inset: 0; border-radius: 50%;
-  background: radial-gradient(circle at 42% 38%, #fff 0%, #c9f4ff 25%, #4fb8ff 55%, #1b5bff 85%, #1237b8 100%);
+  border: 4px solid #070b3a;
+  background: radial-gradient(circle at 40% 36%, #fff 0 14%, #c4f4ff 14% 34%, #5cc8ff 34% 62%, #2b78ff 62% 100%);
   box-shadow: 0 0 40px 12px rgba(94, 225, 255, .6);
   animation: pulse 3s ease-in-out infinite;
 }
@@ -136,12 +145,20 @@ h2 {
   letter-spacing: .15em; text-transform: uppercase; color: var(--yellow); text-shadow: 0 0 18px var(--orange);
 }
 
-.hero h1, .hero .sub, .hero .btn { position: relative; z-index: 1; }
-.hero h1 {
-  font-size: clamp(2.1rem, 9vw, 4rem); font-weight: 900; margin: 1rem 0 .5rem; color: var(--yellow);
-  text-shadow: 3px 3px 0 var(--red), 0 0 26px rgba(255, 138, 31, .6);
+.hero h1, .hero .sub, .hero .btn, .hero .kicker, .hero .aside { position: relative; z-index: 1; }
+.kicker {
+  display: inline-block; margin: 1.25rem 0 0; padding: .2rem 1rem; font-weight: 800; font-style: italic;
+  letter-spacing: .18em; text-transform: uppercase; font-size: .85rem; color: #fff;
+  border-top: 2px solid var(--yellow); border-bottom: 2px solid var(--yellow);
+  text-shadow: 2px 2px 0 #000;
 }
-.sub { max-width: 34rem; margin: 0 auto 1.5rem; color: var(--muted); }
+.hero h1 {
+  font-size: clamp(2.2rem, 10vw, 4.4rem); font-weight: 900; margin: .6rem 0 .5rem; color: var(--yellow);
+  -webkit-text-stroke: 6px #2a0600; paint-order: stroke fill;
+  text-shadow: 4px 6px 0 #b8330a, 0 0 30px rgba(255, 138, 31, .6);
+}
+.sub { max-width: 34rem; margin: 0 auto 1.5rem; color: #d9cdf2; }
+.aside { margin: .9rem 0 0; font-size: .85rem; font-style: italic; color: var(--muted); }
 
 /* ---------- Stage unlocks (cumulative) ---------- */
 .hero[data-stage="2"] { --size: 150px; }
@@ -165,14 +182,14 @@ h2 {
 
 /* ---------- Buttons ---------- */
 .btn {
-  display: inline-block; padding: .85rem 2.2rem; border: 0; border-bottom: 4px solid #b04500; border-radius: 10px; cursor: pointer;
+  display: inline-block; padding: .85rem 2.2rem; border: 3px solid #000; border-bottom-width: 6px; border-radius: 10px; cursor: pointer;
   font: 900 1.15rem system-ui, sans-serif; font-style: italic; text-transform: uppercase; letter-spacing: .05em;
   color: #3a0d00; text-decoration: none;
-  background: linear-gradient(180deg, var(--yellow), var(--orange));
+  background: linear-gradient(180deg, var(--yellow) 0 50%, var(--orange) 50% 100%);
   box-shadow: 0 0 24px rgba(255, 138, 31, .55);
 }
 .btn:hover { filter: brightness(1.1); }
-.btn:active { transform: translateY(2px); border-bottom-width: 2px; }
+.btn:active { transform: translateY(3px); border-bottom-width: 3px; }
 .btn:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 .btn.small { padding: .5rem 1.3rem; font-size: 1rem; margin-top: .75rem; }
 
@@ -215,9 +232,10 @@ section { padding: 2rem 0; border-top: 2px solid #2a1a45; }
 .address { display: block; padding: .75rem; background: var(--panel); border-radius: 6px; user-select: all; }
 .copied { display: block; min-height: 1.5em; color: var(--blue); font-size: .9rem; }
 
-.cards, .missions, .milestones { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
-.card, .missions li, .milestones li {
-  padding: .75rem 1rem; background: var(--panel); border-radius: 8px; border: 1px solid #2a1a45; border-left: 4px solid var(--orange);
+.cards, .milestones { list-style: none; margin: 0; padding: 0; display: grid; gap: .8rem; }
+.card, .milestones li {
+  padding: .75rem 1rem; background: var(--panel); border-radius: 6px; border: 3px solid #000; border-left: 8px solid var(--orange);
+  box-shadow: 4px 4px 0 #7a1d05;
 }
 .card strong, .milestones strong { display: block; }
 .card .title { display: block; color: var(--yellow); font-style: italic; }
@@ -225,10 +243,14 @@ section { padding: 2rem 0; border-top: 2px solid #2a1a45; }
 .milestones .muted { font-size: .9rem; }
 .milestones .locked { opacity: .5; border-left-color: #3a2a5a; }
 .milestones .unlocked { border-left-color: var(--blue); }
-.missions li::before { content: "> "; color: var(--orange); font-weight: 700; }
 
 footer { text-align: center; padding: 2rem 1rem 3rem; font-size: .9rem; }
 footer p { margin: .25rem 0; }
+.next-time {
+  margin: 0 auto 1rem !important; max-width: 32rem; padding: .6rem 1rem; font-weight: 800; font-style: italic;
+  text-transform: uppercase; letter-spacing: .06em; color: #fff; border: 3px solid var(--yellow); background: rgba(0, 0, 0, .35);
+  text-shadow: 2px 2px 0 #000;
+}
 
 @media (min-width: 640px) {
   .donate-grid { grid-template-columns: auto 1fr; text-align: left; justify-items: start; }

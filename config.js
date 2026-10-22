@@ -24,17 +24,9 @@ window.CONFIG = {
     { from: 0, title: "Small glowing orb", note: "Technically a nightlight." },
     { from: 15, title: "Electric arcs", note: "Sparks of questionable intent." },
     { from: 35, title: "Storm clouds", note: "The weather is now my problem." },
-    { from: 55, title: "Planet visible in background", note: "Someone's home is in the blast radius." },
+    { from: 55, title: "Planet visible in background", note: "Someone's home is in the blast radius. Sorry, Kevin." },
     { from: 80, title: "Cosmic emergency warning", note: "Authorities have been notified. They shrugged." },
-    { from: 100, title: "Spirit Bomb Ready", note: "Unleashed upon an unsuspecting backlog." },
-  ],
-
-  missions: [
-    "Ship another feature",
-    "Purchase additional caffeine",
-    "Investigate poorly conceived ideas",
-    "Refactor something unnecessarily",
-    "Continue ignoring grass",
+    { from: 100, title: "Spirit Bomb Ready", note: "Aimed squarely at the backlog. The backlog is not worried." },
   ],
 
   // name and alias are optional. Anonymous heroes are still heroes.

@@ -57,8 +57,8 @@
     var done = function (msg) { $("copied").textContent = msg; };
     if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard.writeText(wallet).then(
-        function () { done("Energy address copied."); },
-        function () { done("Copy failed. Select the address manually."); }
+        function () { done("Copied. Power level rising."); },
+                function () { done("Copy failed. Select the address manually and believe in yourself."); }
       );
     } else {
       var range = document.createRange();
@@ -85,15 +85,12 @@
     heroes.appendChild(li);
   });
 
-  // --- Mission Control ---
-  C.missions.forEach(function (m) { $("mission-list").appendChild(el("li", m)); });
-
   // --- Milestones ---
   C.milestones.forEach(function (m, i) {
     var unlocked = i < stage;
     var li = el("li", null, unlocked ? "unlocked" : "locked");
     li.appendChild(el("strong", "Level " + (i + 1) + ": " + (unlocked ? m.title : "???")));
-    li.appendChild(el("span", unlocked ? m.note : "Unlocks at " + m.from + "% energy.", "muted"));
+    li.appendChild(el("span", unlocked ? m.note : "Unlocks at " + m.from + "% energy. Scream louder.", "muted"));
     $("milestone-list").appendChild(li);
   });
 })();

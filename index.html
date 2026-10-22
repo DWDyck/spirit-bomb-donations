@@ -19,7 +19,8 @@
       <div class="planet"></div>
       <div class="clouds"><i></i><i></i><i></i></div>
       <svg class="ground" viewBox="0 0 400 70" preserveAspectRatio="none">
-        <path d="M0 40 L30 28 L55 38 L90 18 L120 36 L160 30 L200 42 L240 24 L275 38 L315 20 L350 36 L400 26 L400 70 L0 70Z"/>
+        <path class="back" d="M0 34 L20 34 L24 14 L44 14 L48 30 L110 30 L114 10 L140 10 L144 28 L230 28 L234 16 L262 16 L266 30 L320 30 L324 8 L352 8 L356 26 L400 26 L400 70 L0 70Z"/>
+        <path d="M0 46 L36 42 L50 30 L70 30 L84 44 L150 40 L170 28 L192 28 L204 42 L270 44 L290 32 L312 32 L326 44 L400 40 L400 70 L0 70Z"/>
       </svg>
     </div>
 
@@ -54,14 +55,17 @@
     <div class="alert" id="alert" role="status">Cosmic emergency: someone is about to ship again</div>
     <p class="ready" id="ready">Spirit Bomb Ready</p>
 
+    <p class="kicker">Episode 1: The Tokens Run Out</p>
     <h1>Lend Me Your Tokens</h1>
     <p class="sub">I am attempting to assemble enough energy to continue vibe coding at irresponsible levels.</p>
     <a class="btn" href="#donate">Donate Energy</a>
+    <p class="aside">Side effects include features nobody asked for.</p>
   </header>
 
   <main>
     <section id="meter" aria-labelledby="meter-h">
       <h2 id="meter-h">Energy Meter</h2>
+      <p class="note">Scouter readings are accurate, unlike my time estimates.</p>
       <div class="scouter">
         <p class="hud-label">Scouter reading</p>
         <p class="hud-big"><span id="collected">0</span> <small class="unit"></small></p>
@@ -77,7 +81,8 @@
 
     <section id="donate" aria-labelledby="donate-h">
       <h2 id="donate-h">Transfer Your Energy</h2>
-      <p class="note">Public address only. I do not want your keys, your seed phrase, or your DMs.</p>
+      <p class="note">Public address only. Send tokens, receive features. Bugs sold separately. No refunds, only vibes.</p>
+      <p class="note">I do not want your keys, your seed phrase, or your DMs.</p>
       <p class="warn" id="wallet-warn" hidden>Wallet not configured yet. Edit config.js before going live.</p>
       <div class="donate-grid">
         <img class="qr" src="qr.svg" alt="QR code for the donation wallet address" width="180" height="180">
@@ -93,24 +98,19 @@
 
     <section id="heroes" aria-labelledby="heroes-h">
       <h2 id="heroes-h">Hall of Heroes</h2>
-      <p class="note">Those who raised their hands and lent their energy.</p>
+      <p class="note">Those who raised their hands and lent their energy. Every great hero starts as someone with a spare credit card.</p>
       <ul class="cards" id="heroes-list"></ul>
-    </section>
-
-    <section id="mission" aria-labelledby="mission-h">
-      <h2 id="mission-h">Mission Control</h2>
-      <p class="note">Objectives for the energy, in no particular order of importance.</p>
-      <ul class="missions" id="mission-list"></ul>
     </section>
 
     <section id="milestones" aria-labelledby="ms-h">
       <h2 id="ms-h">Progress Milestones</h2>
-      <p class="note">Each level unlocks a more alarming sphere.</p>
+      <p class="note">Each level unlocks a more alarming sphere. Neighbors have been warned.</p>
       <ol class="milestones" id="milestone-list"></ol>
     </section>
   </main>
 
   <footer>
+    <p class="next-time">Next time on Lend Me Your Tokens: will he finally ship the feature, or refactor it again? Find out next time!</p>
     <p>No planets were harmed. Several backlogs were.</p>
     <p>Unofficial fan parody. Not affiliated with or endorsed by any anime franchise.</p>
   </footer>

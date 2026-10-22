@@ -3,7 +3,7 @@
 A parody "spirit bomb" donation site. Static files only: no build step, no backend.
 
 ## Edit
-- `config.js` holds the wallet, energy total, goal, heroes and missions.
+- `config.js` holds the wallet, energy total, goal and heroes.
 - Preview any sphere stage with `index.html?energy=72` (percent of goal).
 - After changing the wallet, regenerate the QR: `npx qrcode -t svg -o qr.svg "<address>"`
 - Never put private keys or seed phrases anywhere in this repo.
